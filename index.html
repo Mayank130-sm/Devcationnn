@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devcation 2025 - A Week-Long Technical Festival</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --secondary: #a855f7;
+      --accent: #ec4899;
+    }
+    
+    body {
+      background-color: #0a0a0a;
+      color: #f3f4f6;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: gradient-shift 3s ease infinite;
+    }
+    
+    @keyframes gradient-shift {
+      0% { background-position: 0% }
+      50% { background-position: 100% }
+      100% { background-position: 0% }
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-gradient {
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+    }
+    
+    .countdown {
+      font-family: 'Courier New', monospace;
+      text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    }
+    
+    .sponsor-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .sponsor-card:hover {
+      transform: scale(1.05);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    }
+    
+    .timeline-dot {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .mobile-menu {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <!-- Mobile Menu Button -->
+  <div class="md:hidden fixed top-4 right-4 z-50">
+    <button id="mobileMenuButton" class="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">
+      <i class="fas fa-bars text-lg"></i>
+    </button>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-md z-40 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="text-2xl font-bold gradient-text">Devcation'25</div>
+        <img src= "images/Screenshot 2025-04-10 213729.png"alt="GDG Campus Logo" class="h-10 w-auto">
+
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#about" class="hover:text-indigo-300 transition font-medium">About</a>
+        <a href="#tracks" class="hover:text-indigo-300 transition font-medium">Tracks</a>
+        <a href="#timeline" class="hover:text-indigo-300 transition font-medium">Timeline</a>
+        <a href="#prizes" class="hover:text-indigo-300 transition font-medium">Prizes</a>
+        <a href="events.html" class="hover:text-indigo-300 transition font-medium">Events</a>
+        <a href="#faq" class="hover:text-indigo-300 transition font-medium">FAQ</a>
+        <a href="#sponsors" class="hover:text-indigo-300 transition font-medium">Sponsors</a>
+        <a href="#contact" class="hover:text-indigo-300 transition font-medium">Contact</a>
+      </nav>
+      <a href="#register" class="hidden md:block btn-primary px-6 py-2 rounded-full font-medium">
+        Register Now
+      </a>
+    </div>
+  </header>
+  
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu md:hidden overflow-hidden transition-all duration-300 max-h-0">
+      <div class="flex flex-col space-y-4 px-6 py-4 border-t border-gray-800">
+        <a href="#about" class="py-2 hover:text-indigo-300">About</a>
+        <a href="#tracks" class="py-2 hover:text-indigo-300">Tracks</a>
+        <a href="#timeline" class="py-2 hover:text-indigo-300">Timeline</a>
+        <a href="#prizes" class="py-2 hover:text-indigo-300">Prizes</a>
+        <a href="#faq" class="py-2 hover:text-indigo-300">FAQ</a>
+        <a href="#sponsors" class="py-2 hover:text-indigo-300">Sponsors</a>
+        <a href="#contact" class="py-2 hover:text-indigo-300">Contact</a>
+        <a href=https://unstop.com/college-fests/devcation25-gdg-on-campus-igdtuw-indira-gandhi-delhi-technical-university-for-women-igdtuw-delhi-368807 class="bg-white hover:bg-gray-200 text-gray-900 px-8 py-4 rounded-full text-lg font-bold transition inline-block">
+        Register Now
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-24 hero-gradient">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <div class="mb-2">
+        <span class="bg-indigo-900/50 text-indigo-300 px-4 py-1 rounded-full text-sm font-medium">
+          April 4-10, 2025
+        </span>
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-6 leading-tight">
+        Welcome to <br>Devcation'25
+      </h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+        A week-long celebration of innovation, diversity, and impact through technology.
+      </p>
+      <div class="countdown text-2xl font-mono mb-10" id="countdown"></div>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://discord.gg/eG4YP3gA48" target="_blank" 
+           class="btn-primary px-8 py-3 rounded-full font-medium flex items-center">
+          <i class="fab fa-discord mr-2"></i> Join Discord
+        </a>
+        <a href="#register"  
+           class="btn-secondary px-8 py-3 rounded-full font-medium flex items-center border border-gray-700">
+          <i class="fas fa-user-plus mr-2"></i> Register Now
+        </a>
+      </div>
+    </div>
+    <div class="mt-16 flex justify-center">
+      <img src="https://ext.same-assets.com/844291147/3958719899.png" alt="Hero Illustration" 
+           class="w-64 md:w-80 animate-float" style="animation: float 6s ease-in-out infinite">
+    </div>
+    
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+      }
+    </style>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-gradient-to-b from-gray-900/50 to-transparent">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="glass-card p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold gradient-text mb-2">4.6/5</div>
+          <p class="text-gray-400">Hacker Rating</p>
+        </div>
+        <div class="glass-card p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold gradient-text mb-2">300+</div>
+          <p class="text-gray-400">Hacks</p>
+        </div>
+        <div class="glass-card p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold gradient-text mb-2">25+</div>
+          <p class="text-gray-400">Mentors</p>
+        </div>
+        <div class="glass-card p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold gradient-text mb-2">500+</div>
+          <p class="text-gray-400">Hackers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">About Devcation</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Where innovation meets collaboration in a week-long tech extravaganza
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <div class="space-y-6">
+            <p class="text-lg leading-relaxed">
+              Devcation is a week-long technical festival organized by GDG IGDTUW, bringing together developers, designers, and tech enthusiasts from across the country.
+            </p>
+            <p class="text-lg leading-relaxed">
+              With a series of workshops, hackathons, and networking events, Devcation aims to foster innovation and collaboration in the tech community.
+            </p>
+            <p class="text-lg leading-relaxed">
+              Whether you're a beginner or an experienced developer, Devcation has something for everyone!
+            </p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#tracks" class="btn-primary px-6 py-2 rounded-full">
+              Explore Tracks
+            </a>
+            <a href="#timeline" class="btn-secondary px-6 py-2 rounded-full border border-gray-700">
+              View Schedule
+            </a>
+          </div>
+        </div>
+        <div data-aos="fade-left" class="relative">
+          <div class="glass-card rounded-xl overflow-hidden aspect-video bg-gray-800/50 flex items-center justify-center">
+            <img src="images/devcation logo.png" alt="Devcation Logo" class="w-full h-full object-contain p-8">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracks Section -->
+  <section id="tracks" class="py-20 bg-gradient-to-b from-transparent to-gray-900/30">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Tracks</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Explore diverse domains and showcase your skills
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-card p-8 rounded-xl" data-aos="fade-up">
+          <div class="text-4xl mb-4 gradient-text">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">HealthTech</h3>
+          <p class="text-gray-400">
+            Innovate for healthcare with diagnostics, monitoring, and wellness solutions.
+          </p>
+        </div>
+        
+        <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl mb-4 gradient-text">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">EdTech</h3>
+          <p class="text-gray-400">
+            Transform education using technology and personalized learning tools.
+          </p>
+        </div>
+        
+        <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl mb-4 gradient-text">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Sustainable Dev</h3>
+          <p class="text-gray-400">
+            Create solutions that address sustainability and global challenges.
+          </p>
+        </div>
+        
+        <div class="glass-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl mb-4 gradient-text">
+            <i class="fas fa-piggy-bank"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">FinTech</h3>
+          <p class="text-gray-400">
+            Innovate in financial technology including payments, banking, and investment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Event Timeline</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Mark your calendars for this exciting week
+      </p>
+      
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="hidden md:block absolute left-1/2 h-full w-1 bg-gradient-to-b from-indigo-500 to-purple-500 transform -translate-x-1/2"></div>
+        
+        <!-- Timeline items -->
+        <div class="space-y-16">
+          <!-- Day 1 -->
+          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up">
+            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+              <h3 class="text-xl font-semibold">Opening Ceremony</h3>
+              <p class="text-indigo-400">April 4, 2025</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-8 h-8 rounded-full timeline-dot mx-4 flex-shrink-0"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="glass-card p-6 rounded-xl">
+                <p>🎉 Opening Ceremony & Registration 🚀</p>
+                <p class="text-gray-400 mt-2">Submission for all Mini Events and the Registration for the Hackathon Starts</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Day 2-3 -->
+          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+              <h3 class="text-xl font-semibold">Hackathon Begins</h3>
+              <p class="text-indigo-400">April 8, 2025</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-8 h-8 rounded-full timeline-dot mx-4 flex-shrink-0"></div>
+            <div class="md:w-1/2 md:pl-12 order-0 md:order-none">
+              <div class="glass-card p-6 rounded-xl">
+                <p>🔨 Hacking Period Starts! 🔓</p>
+                <p class="text-gray-400 mt-2">Get ready to code, create, and innovate!</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Day 4-5 -->
+          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+              <h3 class="text-xl font-semibold">Hackathon Ends</h3>
+              <p class="text-indigo-400">April 12, 2025</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-8 h-8 rounded-full timeline-dot mx-4 flex-shrink-0"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="glass-card p-6 rounded-xl">
+                <p>🔨 Hacking Period Ends! 🔓</p>
+                <p class="text-gray-400 mt-2">Make sure to wrap up your projects and prepare for submission.</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+              <h3 class="text-xl font-semibold">Mentorship Session</h3>
+              <p class="text-indigo-400">April 13, 2025</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-8 h-8 rounded-full timeline-dot mx-4 flex-shrink-0"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="glass-card p-6 rounded-xl">
+                <p>⏰ Mentorship Round Starts ⏰</p>
+                <p class="text-gray-400 mt-2"> Providing mentorship and feedback for every submitted project..</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Day 6 -->
+          <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-none">
+              <h3 class="text-xl font-semibold">Judging & Awards</h3>
+              <p class="text-indigo-400">April 15, 2025</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-8 h-8 rounded-full timeline-dot mx-4 flex-shrink-0"></div>
+            <div class="md:w-1/2 md:pl-12 order-0 md:order-none">
+              <div class="glass-card p-6 rounded-xl">
+                <p>🏆 Final Presentations & Awards</p>
+                <p class="text-gray-400 mt-2">Showcase your projects to our panel of expert judges</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prizes Section -->
+  <section id="prizes" class="py-20 bg-gradient-to-b from-gray-900/50 to-transparent">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Prizes & Perks</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Amazing rewards for your brilliant ideas
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="glass-card p-8 rounded-xl border border-indigo-900/50" data-aos="fade-right">
+          <div class="text-5xl mb-4 gradient-text">🏆</div>
+          <h3 class="text-2xl font-bold mb-4">Hackathon Winners</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+              <span>Cash prizes.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+              <span>Premium swag kits and gadgets</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+              <span>Exclusive mentorship opportunities</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+              <span>Interview preparation sessions</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="glass-card p-8 rounded-xl border border-purple-900/50" data-aos="fade-left">
+          <div class="text-5xl mb-4 gradient-text">✨</div>
+          <h3 class="text-2xl font-bold mb-4">All Participants</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-purple-400 mt-1 mr-2"></i>
+              <span>Certificate of participation</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-purple-400 mt-1 mr-2"></i>
+              <span>50% unstop coupons</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-purple-400 mt-1 mr-2"></i>
+              <span>Networking with industry experts</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-purple-400 mt-1 mr-2"></i>
+              <span>Discounts on premium courses</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Frequently Asked Questions</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Quick answers to common questions
+      </p>
+      
+      <div class="space-y-4">
+        <div class="glass-card p-6 rounded-xl" data-aos="fade-up">
+          <button class="faq-toggle flex justify-between items-center w-full text-left">
+            <h3 class="font-semibold text-lg">Who can participate in Devcation?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-400">
+              Devcation is open to all students and professionals aged 18 and above. Whether you're a beginner or an experienced developer, we welcome you to join! The only requirement is your passion for technology and innovation.
+            </p>
+          </div>
+        </div>
+        
+        <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="50">
+          <button class="faq-toggle flex justify-between items-center w-full text-left">
+            <h3 class="font-semibold text-lg">Where can we reach out in case of queries?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-400">
+              You can reach out to us on our Discord Server with any queries. We have dedicated channels for different types of questions. For urgent matters, you can also email us at contact@gdgigdtuw.com.
+            </p>
+          </div>
+        </div>
+        
+        <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <button class="faq-toggle flex justify-between items-center w-full text-left">
+            <h3 class="font-semibold text-lg">Do I need to have coding experience to participate?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-400">
+              While coding experience is beneficial, it's not mandatory. We welcome participants with diverse skill sets including design, business development, and project management. We'll also have beginner-friendly workshops and mentors to help you get started.
+            </p>
+          </div>
+        </div>
+        
+        <div class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="150">
+          <button class="faq-toggle flex justify-between items-center w-full text-left">
+            <h3 class="font-semibold text-lg">What should I bring to the event?</h3>
+            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+          </button>
+          <div class="faq-content mt-4 hidden">
+            <p class="text-gray-400">
+              For the hackathon, bring your laptop, charger, and any other devices you might need. For online participants, make sure you have a stable internet connection. We'll provide all necessary software details and resources once you register.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsors Section -->
+  <section id="sponsors" class="py-20 bg-gradient-to-b from-transparent to-gray-900/30">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Our Sponsors</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Supported by industry leaders and innovators
+      </p>
+      
+      <div class="flex flex-wrap justify-center gap-8">
+        <div class="sponsor-card" data-aos="zoom-in">
+          <img src="images/unstop log.png" alt="Unstop" class="h-16 object-contain">
+        </div>
+        <div class="sponsor-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/gfg logo.png" alt="GeeksforGeeks" class="h-16 object-contain">
+        </div>
+        <div class="sponsor-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="images/sprint logo.png" alt="Sprint India" class="h-16 object-contain">
+        </div>
+        <div class="sponsor-card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="images/interview buddy.png" alt="Interview Buddy" class="h-16 object-contain">
+        </div>
+        <div class="sponsor-card" data-aos="zoom-in" data-aos-delay="400">
+          <img src="images/rotaract logo.png" alt="Rotaract" class="h-16 object-contain">
+        </div>
+        <div class="sponsor-card" data-aos="zoom-in" data-aos-delay="400">
+          <img src="images/in logo.png" alt="Rotaract" class="h-16 object-contain">
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <p class="text-gray-400 mb-6">Interested in sponsoring?</p>
+        <a href="#contact" class="btn-primary px-6 py-2 rounded-full inline-block">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Judges Section -->
+  <section id="judges" class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Meet Our Judges</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Industry experts evaluating your projects
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card rounded-xl overflow-hidden" data-aos="fade-up">
+          <div class="h-64 bg-gray-800 flex items-center justify-center">
+            <img src="https://ext.same-assets.com/844291147/1437394304.jpeg" alt="Kartik Mathur" class="h-full w-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold">Kartik Mathur</h3>
+            <p class="text-gray-400 text-sm mt-1">Senior Developer Advocate</p>
+            <div class="mt-4">
+              <a href="https://www.linkedin.com/in/kartik-mathur/" target="_blank" class="text-indigo-400 hover:text-indigo-300">
+                <i class="fab fa-linkedin mr-2"></i> Connect
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-64 bg-gray-800 flex items-center justify-center">
+            <img src="https://ext.same-assets.com/844291147/2116536155.jpeg" alt="Vani Chitkara" class="h-full w-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold">Vani Chitkara</h3>
+            <p class="text-gray-400 text-sm mt-1">Product Manager</p>
+            <div class="mt-4">
+              <a href="https://www.linkedin.com/in/vani-chitkara/" target="_blank" class="text-indigo-400 hover:text-indigo-300">
+                <i class="fab fa-linkedin mr-2"></i> Connect
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-64 bg-gray-800 flex items-center justify-center">
+            <img src="https://ext.same-assets.com/844291147/264581515.jpeg" alt="Aarnav Jindal" class="h-full w-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold">Aarnav Jindal</h3>
+            <p class="text-gray-400 text-sm mt-1">Tech Lead</p>
+            <div class="mt-4">
+              <a href="https://www.linkedin.com/in/aarnavjindal/" target="_blank" class="text-indigo-400 hover:text-indigo-300">
+                <i class="fab fa-linkedin mr-2"></i> Connect
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentors Section
+  <section id="mentors" class="py-20 bg-gradient-to-b from-gray-900/50 to-transparent">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Our Mentors</h2>
+      <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        Get guidance from experienced professionals
+      </p>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div class="mentor-card text-center" data-aos="zoom-in">
+          <div class="glass-card p-6 rounded-xl">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-indigo-500 overflow-hidden mb-4">
+              <img src="C:\Users\ritik\OneDrive\Desktop\mentors1.png" alt="Radhika Bansal" class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-semibold">Radhika Bansal</h4>
+            <p class="text-gray-400 text-sm">UI/UX Expert</p>
+          </div>
+        </div>
+        
+        <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="glass-card p-6 rounded-xl">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-purple-500 overflow-hidden mb-4">
+              <img src="C:\Users\ritik\OneDrive\Desktop\mentor2.png" alt="Sanidhya Goel" class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-semibold">Sanidhya Goel</h4>
+            <p class="text-gray-400 text-sm">Full Stack Dev</p>
+          </div>
+        </div>
+        
+        <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="200">
+          <div class="glass-card p-6 rounded-xl">
+            <div class="w-24 h-24 mx-auto rounded-full border-2 border-pink-500 overflow-hidden mb-4">
+              <img src="C:\Users\ritik\OneDrive\Desktop\mentor 3.png" alt="Tejaswi Tyagi" class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-semibold">Tejaswi Tyagi</h4>
+            <p class="text-gray-400 text-sm">AI Specialist</p>
+          </div>
+        </div>
+        
+        <div class="mentor-card text-center" data-aos="zoom-in" -->
+       <!-- Mentors Section -->
+<section id="mentors" class="py-20 bg-gradient-to-b from-gray-900/50 to-transparent">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Our Mentors</h2>
+    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+      Get guidance from industry experts throughout your journey
+    </p>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <!-- Mentor 1 -->
+      <div class="mentor-card text-center" data-aos="zoom-in">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-indigo-500 overflow-hidden mb-4">
+            <img src="images/mentors1.png" alt="Radhika Bansal" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Radhika Bansal</h4>
+          <p class="text-gray-400 text-sm mt-1">UI/UX Designer</p>
+        </div>
+      </div>
+      
+      <!-- Mentor 2 -->
+      <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="100">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-purple-500 overflow-hidden mb-4">
+            <img src="images/mentor2.png" alt="Sanidhya Goel" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Sanidhya Goel</h4>
+          <p class="text-gray-400 text-sm mt-1">Full Stack Developer</p>
+        </div>
+      </div>
+      
+      <!-- Mentor 3 -->
+      <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="200">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-pink-500 overflow-hidden mb-4">
+            <img src="images/mentor 3.png" alt="Tejaswi Tyagi" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Tejaswi Tyagi</h4>
+          <p class="text-gray-400 text-sm mt-1">AI Specialist</p>
+        </div>
+      </div>
+      
+      <!-- Mentor 4 -->
+      <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="300">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-teal-500 overflow-hidden mb-4">
+            <img src="images/mentor5.png" alt="Suhani Nagpal" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Suhani Nagpal</h4>
+          <p class="text-gray-400 text-sm mt-1">Cloud Architect</p>
+        </div>
+      </div>
+      
+      <!-- Mentor 5 -->
+      <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="400">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-purple-500 overflow-hidden mb-4">
+            <img src="images/mentor6.png" alt="Teeksha Harrish" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Teeksha Harrish</h4>
+          <p class="text-gray-400 text-sm mt-1">Blockchain Developer</p>
+        </div>
+      </div>
+      
+      <!-- Mentor 6 -->
+      <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="500">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-purple-500 overflow-hidden mb-4">
+            <img src="images/mentor7.png" alt="Aishvi Guleria" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Aishvi Guleria</h4>
+          <p class="text-gray-400 text-sm mt-1">DevOps Engineer</p>
+        </div>
+      </div>
+      
+      <!-- Mentor 7 -->
+      <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="600">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-purple-500 overflow-hidden mb-4">
+            <img src="images/mentor 8.png" alt="Pratham Batra" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Pratham Batra</h4>
+          <p class="text-gray-400 text-sm mt-1">Mobile Developer</p>
+        </div>
+      </div>
+      
+      <!-- Mentor 8 -->
+      <div class="mentor-card text-center" data-aos="zoom-in" data-aos-delay="700">
+        <div class="glass-card p-6 rounded-xl">
+          <div class="w-24 h-24 mx-auto rounded-full border-2 border-purple-500 overflow-hidden mb-4">
+            <img src="images/mentor4.png" alt="Sanidhya Goel" class="w-full h-full object-cover">
+          </div>
+          <h4 class="font-semibold">Sanidhya Goel</h4>
+          <p class="text-gray-400 text-sm mt-1">Backend Specialist</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center gradient-text mb-4">Contact Us</h2>
+    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+      Have questions? Reach out to our team
+    </p>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+      <div data-aos="fade-right">
+        <div class="glass-card p-8 rounded-xl">
+          <form>
+            <div class="mb-6">
+              <label for="name" class="block text-gray-300 mb-2 font-medium">Your Name</label>
+              <input type="text" id="name" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+            <div class="mb-6">
+              <label for="email" class="block text-gray-300 mb-2 font-medium">Email Address</label>
+              <input type="email" id="email" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block text-gray-300 mb-2 font-medium">Message</label>
+              <textarea id="message" rows="4" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full py-3 rounded-lg font-medium">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div data-aos="fade-left">
+        <div class="glass-card p-8 rounded-xl h-full">
+          <h3 class="text-xl font-semibold mb-4">Other Ways to Connect</h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="text-indigo-400 mt-1 mr-4">
+                <i class="fas fa-envelope text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">Email Us</h4>
+                <a href="mailto:gdgigdtuw@gmail.com" class="text-gray-400 hover:text-indigo-400">gdgigdtuw@gmail.com</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-indigo-400 mt-1 mr-4">
+                <i class="fab fa-discord text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">Join Our Discord</h4>
+                <a href="https://discord.gg/eG4YP3gA48" target="_blank" class="text-gray-400 hover:text-indigo-400">discord.gg/gdgigdtuw</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-indigo-400 mt-1 mr-4">
+                <i class="fab fa-twitter text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">Follow on Twitter</h4>
+                <a href="https://twitter.com/gdgigdtuw" target="_blank" class="text-gray-400 hover:text-indigo-400">@gdgigdtuw</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-indigo-400 mt-1 mr-4">
+                <i class="fab fa-instagram text-lg"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">Follow on Instagram</h4>
+                <a href="https://instagram.com/gdgigdtuw" target="_blank" class="text-gray-400 hover:text-indigo-400">@gdgigdtuw</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+          <!-- Register Section -->
+          <section id="register" class="py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+              <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-6">Ready to Join Devcation'25?</h2>
+              <p class="text-lg text-gray-300 mb-8">Register now to secure your spot in this exciting week-long technical festival!</p>
+              <a href=https://unstop.com/college-fests/devcation25-gdg-on-campus-igdtuw-indira-gandhi-delhi-technical-university-for-women-igdtuw-delhi-368807 class="bg-white hover:bg-gray-200 text-gray-900 px-8 py-4 rounded-full text-lg font-bold transition inline-block">
+                Register Now <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </section>
+          <!-- Footer -->
+          <footer class="bg-gray-950 text-center py-8">
+            <div class="max-w-6xl mx-auto px-4">
+              <div class="text-2xl font-bold gradient-text mb-4">Devcation'25</div>
+              <p class="text-gray-500 mb-4">A week-long technical festival by GDG IGDTUW</p>
+              <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-indigo-400 transition">Code of Conduct</a>
+                <a href="#" class="hover:text-indigo-400 transition">Privacy Policy</a>
+                <a href="#" class="hover:text-indigo-400 transition">Terms</a>
+              </div>
+              <p class="text-gray-500 text-sm">© 2025 GDG IGDTUW. Made with ❤️ by the Team</p>
+            </div>
+          </footer>
+        
+          <script>
+            // Initialize AOS animations
+            AOS.init({ duration: 1000, once: true });
+        
+            // Theme toggle function
+            function toggleTheme() {
+              document.body.classList.toggle('bg-white');
+              document.body.classList.toggle('text-black');
+              document.body.classList.toggle('text-white');
+              document.body.classList.toggle('bg-gray-900');
+            }
+        
+            // Countdown timer
+            const countdownEl = document.getElementById("countdown");
+            const eventDate = luxon.DateTime.fromISO("2025-04-08T00:00:00");
+            function updateCountdown() {
+              const now = luxon.DateTime.now();
+              const diff = eventDate.diff(now, ["days", "hours", "minutes", "seconds"]).toObject();
+              if (diff.days >= 0) {
+                countdownEl.textContent = `${Math.floor(diff.days)}d ${Math.floor(diff.hours)}h ${Math.floor(diff.minutes)}m ${Math.floor(diff.seconds)}s until Devcation starts!`;
+              } else {
+                countdownEl.textContent = "Devcation has started!";
+              }
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+              mobileMenu.classList.toggle('open');
+            });
+        
+            // FAQ accordion functionality
+            const faqButtons = document.querySelectorAll('#faq button');
+            faqButtons.forEach(button => {
+              button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+              });
+            });
+        
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+              anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                  window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                  });
+                  
+                  // Close mobile menu if open
+                  if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                  }
+                }
+              });
+            });
+          </script>
+        </body>
+        </html>
